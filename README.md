@@ -1,7 +1,7 @@
 
 # About
 
-VulnApp is a simple Flask application that's used to store a list of vulnerabilities are present in itself.
+VulnApp is a simple Flask application that's used to store a list of vulnerabilities that are present in itself.
 
 The app runs on Amazon EKS with mongoDB on EC2 used as back-end. Database is being backed up to S3 every 5 minutes by a script running on the bastion host. 
 
