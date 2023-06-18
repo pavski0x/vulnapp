@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Item List</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f3f3f3;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            width: 80%;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            border: 1px solid black;
+            padding: 15px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #f0f0f0;
+        }
+
+        th:nth-child(1),
+        th:nth-child(3),
+        td:nth-child(1),
+        td:nth-child(3) {
+            width: 1%;
+            white-space: nowrap;
+        }
+
+        .input-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .input-container form {
+            display: flex;
+            align-items: center;
+        }
+
+        .input-container input[type="text"] {
+            padding: 5px;
+            font-size: 16px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            margin-right: 10px;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var centerColumnWidth = document.querySelector('th:nth-child(2)').offsetWidth;
+            document.getElementById('item').style.width = centerColumnWidth + 'px';
+        };
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <h1 style="text-align:center;">Vulnerabilities found in this app:</h1>
+        <div class="input-container">
+            <form method="POST" autocomplete="off">
+                <label for="item">Add new: </label>
+                <input type="text" id="item" name="item" autocomplete="off">
+                <input type="submit" value="Add">
+            </form>
+        </div>
+        <table>
+            <tr>
+                <th>#</th>
+                <th>Item</th>
+                <th>Action</th>
+            </tr>
+            {% for item in items %}
+            <tr>
+                <td>{{ loop.index }}</td>
+                <td>{{ item['item'] }}</td>
+                <td>
+                    <form action="{{ url_for('delete', item_id=item._id) }}" method="POST" style="display: inline;">
+                        <input type="submit" value="Delete">
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</body>
+
+</html>
