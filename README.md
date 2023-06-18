@@ -47,7 +47,7 @@ The app runs on Amazon EKS with mongoDB on EC2 used as back-end. Database is bei
 # Steps to deploy the application
 
 ## Setup required credentials 
-Log in and get credentials by either setting local variables:
+Set credentials by either setting local variables:
 
     export AWS_ACCESS_KEY_ID="xxxxx"
     export AWS_SECRET_ACCESS_KEY="xxxxx"
