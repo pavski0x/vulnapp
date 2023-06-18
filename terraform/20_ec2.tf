@@ -66,7 +66,7 @@ module "bastion_instance" {
   # ami = "ami-0094635555ed28881"
   
   # Private with mongodb backups scheduled
-  ami = "ami-0482ae2d5662f8c33"
+  ami = "ami-0309ae3c27ab2652d"
 }
 
 
