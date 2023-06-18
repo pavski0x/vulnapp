@@ -86,10 +86,11 @@ Or store your credentials in  ~/.aws/credentials
     
 
 ## Monitor the deployment and access the app
-
     kubectl logs -f -n kube-system -l app.kubernetes.io/name=aws-load-balancer-controller
     kubectl get pods 
     kubectl logs <POD> 
+
+## Get FQDN of the public ALB
     kubectl get ingress 
 
 
